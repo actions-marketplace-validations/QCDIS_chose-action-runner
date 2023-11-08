@@ -22,6 +22,7 @@ runs:
   using: "composite"
   steps:
     - id: chose-runner
+      shell: bash
       run: |
         runners=$(curl -s -H "Accept: application/vnd.github+json" -H "Authorization: token ${{ inputs.github-token }}" "https://api.github.com/${{ inputs.runners-holder }}/actions/runners")
         echo $runners
